@@ -1,0 +1,32 @@
+.form-container {
+    display: flex;
+    padding: 0 10vw;
+    width: auto;
+    flex-wrap: wrap;
+    align-items: stretch;
+    box-sizing: border-box;  
+    .form-field {
+        margin: 10px 2%;
+        padding: 10px;
+        @media (min-width: 550px) {
+            &:nth-child(2n+1) {
+                margin-left: 0;
+            }
+            &:nth-child(2n) {
+                margin-right: 0;
+            }    
+        }
+    }
+}
+
+.actions {
+    text-align: center;
+}
+
+@media (max-width: 549px) {
+    .form-field {
+      margin: 10px 0;
+      width: initial;
+      padding: 10px;
+    }
+  }

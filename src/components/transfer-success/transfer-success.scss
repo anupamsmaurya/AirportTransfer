@@ -1,0 +1,18 @@
+.root {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    color: #5563DE;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+    min-width: 40vw;
+    a {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+    }
+}
