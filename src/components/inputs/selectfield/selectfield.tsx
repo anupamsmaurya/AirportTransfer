@@ -4,14 +4,15 @@ interface Props {
     value: string,
     options: {[key:string]: string}[],
     error?: string,
-    onChangeHandler: ((event: React.ChangeEvent<HTMLSelectElement>) => void)
+    onChangeHandler: ((event: React.ChangeEvent<HTMLSelectElement>) => void),
+    onBlur?: ((event: React.FocusEvent<HTMLSelectElement>) => void)
 }
 
-const SelectField: React.FC<Props> = ({name, label, value, options, error, onChangeHandler}) => {
+const SelectField: React.FC<Props> = ({name, label, value, options, error, onChangeHandler, onBlur}) => {
     return (
         <div className='form-field selectbox'>
             <label htmlFor={name}>{label}</label>
-            <select name={name} id={name} value={value} onChange={onChangeHandler}>
+            <select name={name} id={name} value={value} onChange={onChangeHandler} onBlur={onBlur}>
                 {
                     options.map(
                         option => <option value={option.key} key={option.key}>{option.value}</option>

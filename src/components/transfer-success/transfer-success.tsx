@@ -7,7 +7,7 @@ function TransferSuccess() {
     if(hide) return <></>
     return (
         <div className='root'>
-            <a href='#' onClick={() => setHide(true)}> x</a>
+            <button onClick={() => setHide(true)}>x</button>
             Successfully Submitted
         </div>
     );

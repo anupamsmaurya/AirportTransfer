@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FormValuesType, ObjectMap, submitFormType } from './typeDefinitions';
 
-type validateType = (values: FormValuesType, field?: string, errors?: ObjectMap) => any
+type validateType = (values: FormValuesType, field?: string, errors?: ObjectMap) => ObjectMap
 
 const useForm = (callback: submitFormType, validate: validateType) => {
     const [values, setValues] = useState({
@@ -32,9 +32,10 @@ const useForm = (callback: submitFormType, validate: validateType) => {
         });
     };
 
-    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement|HTMLSelectElement>) => {
         const { name, value } = e.target
-        setErrors(validate(values, name, errors));
+        const newErrors = validate(values, name, errors)
+        setErrors({...errors, ...newErrors});
     }
 
     const handleSubmit = (e: React.FormEvent) => {

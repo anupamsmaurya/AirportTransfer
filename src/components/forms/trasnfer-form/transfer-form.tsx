@@ -1,7 +1,7 @@
 import TextField from '../../inputs/textfield'
 import SelectField from '../../inputs/selectfield'
 import useForm from '../../../utils/useForm'
-import validateForm, { validateOnBlur } from '../../../utils/validateForm'
+import validateForm from '../../../utils/validateForm'
 import { submitFormType } from '../../../utils/typeDefinitions'
 import './transfer-form.scss';
 
@@ -25,6 +25,7 @@ const TransferForm: React.FC<Props> = ({ submitForm }) => {
                         onChangeHandler={handleChange}
                         onBlur={handleBlur}
                         error={errors.fullname}
+                        placeholder='Enter your name'
                     />
                     <TextField
                         name='mobile'
@@ -33,6 +34,7 @@ const TransferForm: React.FC<Props> = ({ submitForm }) => {
                         onChangeHandler={handleChange}
                         onBlur={handleBlur}
                         error={errors.mobile}
+                        placeholder='+44 0123456789'
                     />
                     <TextField
                         name='arrivalDate'
@@ -41,6 +43,7 @@ const TransferForm: React.FC<Props> = ({ submitForm }) => {
                         onChangeHandler={handleChange}
                         onBlur={handleBlur}
                         error={errors.arrivalDate}
+                        placeholder='dd/mm/yyyy'
                     />
                     <TextField
                         name='flight'
@@ -49,11 +52,13 @@ const TransferForm: React.FC<Props> = ({ submitForm }) => {
                         onChangeHandler={handleChange}
                         onBlur={handleBlur}
                         error={errors.flight}
+                        placeholder='6E1234'
                     />
                     <SelectField
                         name='airport'
                         label='Airport'
                         onChangeHandler={handleChange}
+                        onBlur={handleBlur}
                         value={values.airport}
                         options={[
                             { key: '', value: '--Select--' },
@@ -69,6 +74,7 @@ const TransferForm: React.FC<Props> = ({ submitForm }) => {
                             label='Terminal'
                             value={values.terminal}
                             onChangeHandler={handleChange}
+                            onBlur={handleBlur}
                             options={[
                                 { key: '1', value: '1' },
                                 { key: '2', value: '2' },

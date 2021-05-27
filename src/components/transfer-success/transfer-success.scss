@@ -1,16 +1,22 @@
+@import "../../utils/common.scss";
+
 .root {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    color: #5563DE;
-    background: white;
+    color: $primary-color;
+    background: $text-color;
     justify-content: center;
     align-items: center;
     min-height: 40vh;
     min-width: 40vw;
-    a {
+    border: 5px solid $primary-color;
+    @include for-size(phone-only) {
+        min-width: 80vw;
+    }
+    button {
         position: absolute;
         top: 1em;
         right: 1em;

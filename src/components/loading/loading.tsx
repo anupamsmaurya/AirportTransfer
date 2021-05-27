@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './loading.scss';
 
 function Loading() {

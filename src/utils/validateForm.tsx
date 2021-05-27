@@ -14,10 +14,14 @@ export default function validateForm(
   errors: ObjectMap = {}
 ): ObjectMap {
 
-  if (!values.fullname && (field === 'all' || field === 'fullname')) {
-    errors.fullname = 'Fullname is required'
-  } else {
-    delete errors.fullname
+  //field = 'all' in case of submit validation. field=[fieldname] in case of onBlur validation.
+  //So, if for onBlur field is != all and we have to validate specific(one) field only.
+  if(field === 'all' || field === 'fullname') {
+    if (!values.fullname) {
+      errors.fullname = 'Fullname is required'
+    } else {
+      delete errors.fullname
+    }  
   }
 
   if(field === 'all' || field === 'mobile') {
@@ -60,29 +64,5 @@ export default function validateForm(
       delete errors.flight
     }  
   }
-  console.log(errors)
   return errors
-}
-
-const validateRequiredField = (value: string): boolean => {
-  return !value.trim()
-}
-
-type validateBlurType = (name: string, value: string) => boolean
-export const validateOnBlur: validateBlurType = (name: string, value: string) => {
-  const result = true
-  switch (name) {
-    case 'mobile':
-      if (!value) {
-        //errors.mobile = 'Mobile number required'
-      } else if (!regexUKPhone.test(value)) {
-        //errors.mobile = 'Mobile number is invalid'
-      }
-
-      break;
-
-    default:
-      break;
-  }
-  return result
 }

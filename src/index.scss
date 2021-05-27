@@ -1,6 +1,7 @@
+@import "utils/common.scss";
+
 html, body {
   height: 100%;
-  overflow: hidden;
 }
 body {
   margin: 0;
@@ -12,28 +13,11 @@ body {
   display: flex;
   flex: 1;
   justify-content: center;
-  background: linear-gradient(to bottom, #74ABE2, #5563DE);
-  color: white;
+  background: linear-gradient(to bottom, $secondary-color, $primary-color);
+  color: $text-color;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-label {
-  display: block;
-  font-size: 1.5rem;
-}
-
-input, select {
-  height: 1.5rem;
-  font-size: 1.2rem;
-  width: 35vw;
-}
-
-@media (max-width: 460px) {
-  input, select {
-    width: 80vw;
-  }
 }

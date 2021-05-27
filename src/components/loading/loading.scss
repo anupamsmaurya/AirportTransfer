@@ -1,3 +1,5 @@
+@import "../../utils/common.scss";
+
 .container {
   position: absolute;
   top: 0;
@@ -9,7 +11,7 @@
   align-items: center;
   background: rgba(0,0,0,0.5);
   .loader {
-    color: #ffffff;
+    color: $text-color;
     font-size: 20px;
     margin: 100px auto;
     width: 1em;

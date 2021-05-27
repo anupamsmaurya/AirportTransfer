@@ -1,3 +1,5 @@
+@import "../../../utils/common.scss";
+
 .form-container {
     display: flex;
     padding: 0 10vw;
@@ -7,26 +9,47 @@
     box-sizing: border-box;  
     .form-field {
         margin: 10px 2%;
-        padding: 10px;
-        @media (min-width: 550px) {
+        @include for-size(tablet-portrait-up) {    
             &:nth-child(2n+1) {
                 margin-left: 0;
             }
             &:nth-child(2n) {
                 margin-right: 0;
             }    
-        }
+       }
     }
+    label {
+        display: block;
+        font-size: 1.5rem;
+      }
+      
+      input, select {
+        height: 1.5rem;
+        font-size: 1.2rem;
+        width: 35vw;
+      }
+      select {
+        height: 1.9rem;
+        width: 36vw;
+      }
+      @include for-size(phone-only) {    
+        input, select {
+          width: 80vw;
+        }
+      }    
 }
 
 .actions {
     text-align: center;
+    button {
+      padding: .5rem;
+      font-size: 1rem;  
+    }
 }
 
-@media (max-width: 549px) {
-    .form-field {
-      margin: 10px 0;
-      width: initial;
-      padding: 10px;
-    }
+@include for-size(phone-only) {    
+  .form-field {
+    margin: 10px 0;
+    width: initial;
   }
+}

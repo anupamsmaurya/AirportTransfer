@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client/react'
 import { CREATE_BOOKING_MUTATION } from '../../graphql/mutations'
 import { submitFormType } from '../../utils/typeDefinitions'
 import Loading from '../loading'
+import Error from '../error'
 import './app.scss'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
     return (
             <div className='app-root'>
                 <h1>Airpot Transfer</h1>
+                {error && <Error />}
                 <TransferForm submitForm={submitForm} />
                 {loading && <Loading />}
                 {data && <TransferSuccess />}
