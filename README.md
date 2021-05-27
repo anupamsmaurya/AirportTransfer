@@ -1,6 +1,46 @@
-# Getting Started with Create React App
+# Airport Transfer
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This app contains a booking form for Airport transfers.
+
+It uses GrqphQL mutation for creating booking. The mock server is located at https://github.com/anupamsmaurya/AirportTransferServer.
+
+## Field validations
+
+### UK phone numbers
+Matches     +447222555555   | +44 7222 555 555 | (0722) 5555555 #2222
+
+Non-Matches (+447222)555555 | +44(7222)555555  | (0722) 5555555 #22
+
+### UK Date
+mm/dd/yy and mm/dd/yyyy
+
+### Flight number
+Following this doc for flight number validation: https://gist.github.com/yectep/4372d1166a192d5e9754
+
+Regex: /^[A-Z0-9]{3,}$/	Example: BA026
+
+## Steps to run
+
+### Server
+
+1. Clone the server repo https://github.com/anupamsmaurya/AirportTransferServer.git
+2. Install dependecies (yarn or npm i)
+3. Start the server using `node index.js` . It will start a sever at http://localhost:4000/
+
+### Client
+
+1. Clone this repo and install dependecies.
+2. yarn start or npm run start
+
+## Pending features/ enhancements
+
+* Right now this app uses custom validations. For handling a more enhanced/bigger app we should use some react form library (Formik, useForm etc) which provides robust form handling and validation features out of the box.
+* The form submissions are currently not stored/cached locally. For demo purpose these can be stored locally to show a list of bookings. 
+* Currently this app relies only on apollo-react features for error handling which are good enough but it could be enhanced.
+
+
 
 ## Available Scripts
 
